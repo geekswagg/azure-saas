@@ -123,7 +123,7 @@ public class PermissionsService(
 
     public async Task AddUserPermissionsToTenantByEmailAsync(Guid tenantId, string userEmail, string[] permissions)
     {
-        _logger.LogDebug($"User permissions where requested to be added to {userEmail} on {tenantId}");
+        _logger.LogDebug($"User permissions where requested to be added to {userEmail.Replace(Environment.NewLine, "")} on {tenantId.Replace(Environment.NewLine, "")}");
         
         User user = await _graphAPIService.GetUserByEmail(userEmail);
 
